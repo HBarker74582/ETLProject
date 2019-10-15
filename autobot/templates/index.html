@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+        <!-- <link rel="stylesheet" href="/static/style.css" /> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <style>
+        /*
+    NOTE: Commenting is a bit different in CSS.
+    They start with forward-slash + asterisk
+    and end with back-slash + asterisk.
+    */
+
+        /* h1 heading tag */
+        h1 {
+
+            background-color: black;
+        }
+
+        /* h2 heading tags */
+        h2 {
+            /* Put a 15-pixel margin at the top of all h2 headings. */
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        /* h3 heading tags */
+        h3 {
+            margin-top: 15px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        /* All img tags */
+        .card-title,
+        .url {
+            border-style: double;
+            display: block;
+        }
+    </style>
+
+    <body color="red">
+        <div class="container text-center">
+            <h1 class="jumbotron">Transformers - More than meets the Eyes! in LA</h1>
+            <div>
+                <!-- write a for loop that lists out your data and accesses the values using dot notation. -->
+                {% for items in inventory %}
+                <div class="col-sm-4">
+                    <div class="card" style="width: 20rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ items.title }}</h4>
+                            <h6 class="card-subtitle mb-2 text-muted">Cost: {{ items.price }}</h6>
+                            <a class="url" href="{{ items.url }}">link</a>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </body>
+
+</html>
